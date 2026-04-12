@@ -85,8 +85,9 @@ def explain() -> dict:
 
 
 @app.post("/reset")
-def reset(payload: ResetRequest) -> dict:
-    return env.reset(task_id=payload.task_id)
+def reset(payload: Optional[ResetRequest] = None) -> dict:
+    task_id = payload.task_id if payload is not None else "easy"
+    return env.reset(task_id=task_id)
 
 
 @app.get("/state")
