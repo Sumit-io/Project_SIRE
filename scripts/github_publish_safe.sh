@@ -39,7 +39,8 @@ if [[ "$branch" == "HEAD" ]]; then
   git branch -M "$branch"
 fi
 
-# Use token via HTTP header so it is not embedded in remote URL history.
-git -c http.extraHeader="Authorization: Bearer ${GITHUB_TOKEN}" push -u origin "$branch"
+# Use Basic auth header so PAT works with git-over-HTTPS without storing token in remote URL.
+AUTH_B64="$(printf 'x-access-token:%s' "${GITHUB_TOKEN}" | base64 -w0)"
+git -c http.extraHeader="Authorization: Basic ${AUTH_B64}" push -u origin "$branch"
 
 echo "PASS: pushed to ${GITHUB_REPO_URL} on branch ${branch}"
