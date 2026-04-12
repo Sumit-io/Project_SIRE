@@ -27,7 +27,7 @@ TMP_DIR="$(mktemp -d)"
 trap 'rm -rf "$TMP_DIR"' EXIT
 
 # Copy only submission-relevant files for Space runtime.
-cp app.py inference.py openenv.yaml requirements.txt Dockerfile "$TMP_DIR/"
+cp app.py inference.py openenv.yaml requirements.txt pyproject.toml Dockerfile "$TMP_DIR/"
 cp docs/HF_SPACE_README.md "$TMP_DIR/README.md"
 cp -r sire_env tasks frontend "$TMP_DIR/"
 

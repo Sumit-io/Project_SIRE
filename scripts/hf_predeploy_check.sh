@@ -5,7 +5,7 @@ ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT_DIR"
 
 echo "[1/4] Required file check"
-required=(app.py inference.py openenv.yaml requirements.txt Dockerfile)
+required=(app.py inference.py openenv.yaml requirements.txt pyproject.toml Dockerfile)
 for f in "${required[@]}"; do
   [[ -f "$f" ]] || { echo "ERROR: missing $f"; exit 1; }
 done
