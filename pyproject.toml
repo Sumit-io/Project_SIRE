@@ -1,0 +1,34 @@
+[build-system]
+requires = ["hatchling>=1.24.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sire-round1"
+version = "1.0.0"
+description = "Service Incident Response Environment (SIRE) for OpenEnv Round 1"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "Sumit Kumar" }
+]
+dependencies = [
+  "fastapi==0.115.0",
+  "uvicorn==0.30.6",
+  "pydantic==2.9.2",
+  "torch==2.4.1",
+  "requests==2.32.3",
+  "openai==1.51.2"
+]
+
+[project.urls]
+Homepage = "https://github.com/Sumit-io/Project_SIRE"
+
+[tool.hatch.build.targets.wheel]
+include = [
+  "app.py",
+  "inference.py",
+  "openenv.yaml",
+  "sire_env",
+  "tasks",
+  "frontend"
+]

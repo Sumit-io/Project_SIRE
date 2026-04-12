@@ -1,5 +1,5 @@
 Scaler Pre-Submission Gate Report
-Date: 2026-04-12 17:17:50Z
+Date: 2026-04-12 17:33:38Z
 HF_BASE=https://sumit-io-project-sire.hf.space
 
 [1] HF Space deploy + ping/reset
@@ -17,7 +17,7 @@ docker_build=PASS
 [4] Baseline reproduces (inference.py)
 runtime_seconds=1
 start_tags=1 step_tags=6 end_tags=1 non_tag_lines=0
-[END] run_id=easy-1776014275 task_id=easy score=0.8358 success=True
+[END] run_id=easy-1776015223 task_id=easy score=0.8358 success=True
 
 [5] 3+ tasks with graders score/reward ranges
 task=easy score=0.8358 score_ok=True reward_min=0.0900 reward_max=0.4400 reward_ok=True
