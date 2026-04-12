@@ -1,0 +1,35 @@
+Phase 3 Preflight Report
+Date: 2026-04-12
+
+1) Runtime and dependency checks
+- Python: 3.12.1
+- Imports verified in active environment: fastapi, openai, torch, requests, pydantic
+
+2) Live endpoint checks (localhost:7860)
+- GET /health -> 200, body: {"status":"ok"}
+- GET / -> includes endpoint list with /demo
+- GET /demo -> 200
+- GET /assets/styles.css -> 200
+
+3) Inference strict format checks
+- Command: ENV_URL=http://localhost:7860 TASK_ID=easy python3 inference.py
+- Log artifact: validation/phase3_inference_run.log
+- Tag counts: START=1, STEP=13, END=1
+- Non-tag output lines: 0
+- Result: PASS for strict tagged stdout format
+
+4) Policy quality tuning update
+- Implemented deterministic rule-guided action selection in baseline policy.
+- Easy run now completes with successful recovery trajectory.
+- End line sample: [END] run_id=easy-1776009615 task_id=easy score=0.8358 success=True
+- Non-tag output lines remain: 0
+
+5) Cross-task inference summary
+- Artifact: validation/phase3_inference_success_summary.txt
+- easy -> score=0.8358 success=True
+- medium -> score=0.7899 success=True
+- hard -> score=0.7419 success=True
+
+6) Conclusion
+- Phase 3 logging/integration preflight is operational and demo-success path is now validated.
+- Next task: freeze remaining Phase 2 gate decisions, then proceed to Phase 4 deployment prep.

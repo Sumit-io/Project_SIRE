@@ -1,0 +1,6 @@
+TASK=easy
+[END] run_id=easy-1776009625 task_id=easy score=0.8358 success=True
+TASK=medium
+[END] run_id=medium-1776009626 task_id=medium score=0.7899 success=True
+TASK=hard
+[END] run_id=hard-1776009626 task_id=hard score=0.7419 success=True

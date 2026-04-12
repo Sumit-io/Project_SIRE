@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Local env and logs
+.env
+.env.*
+*.log
+
+# Build artifacts
+*.tar
+*.gz
+
+# Secrets
+*token*
+*cookie*
+*pat*
+Github_pat
+hugging_face_req.md

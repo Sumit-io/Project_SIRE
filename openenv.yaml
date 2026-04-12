@@ -1,0 +1,31 @@
+name: sire_round1_env
+version: 1.0.0
+description: Service Incident Response Environment (SIRE) for Round 1
+
+interfaces:
+  reset:
+    method: POST
+    path: /reset
+  step:
+    method: POST
+    path: /step
+  state:
+    method: GET
+    path: /state
+
+tasks:
+  - id: easy
+    title: Single-service incident recovery
+    target: Restore stable service with low escalation cost
+  - id: medium
+    title: Multi-service noisy incident
+    target: Recover with balanced diagnostics and action quality
+  - id: hard
+    title: Cascading incident under strict budget
+    target: Resolve safely with constrained escalations
+
+scoring:
+  range:
+    min: 0.0
+    max: 1.0
+  strategy: normalized_episode_score
