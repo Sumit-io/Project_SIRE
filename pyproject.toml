@@ -17,8 +17,12 @@ dependencies = [
   "pydantic==2.9.2",
   "torch==2.4.1",
   "requests==2.32.3",
-  "openai==1.51.2"
+  "openai>=2.7.2",
+  "openenv-core>=0.2.0"
 ]
+
+[project.scripts]
+server = "server.app:main"
 
 [project.urls]
 Homepage = "https://github.com/Sumit-io/Project_SIRE"

@@ -1,5 +1,5 @@
 Scaler Pre-Submission Gate Report
-Date: 2026-04-12 17:33:38Z
+Date: 2026-04-12 17:42:48Z
 HF_BASE=https://sumit-io-project-sire.hf.space
 
 [1] HF Space deploy + ping/reset
@@ -12,12 +12,52 @@ has_state= True
 openenv_ok= True
 
 [3] Dockerfile builds
-docker_build=PASS
+docker_build=FAIL
+#9 42.46 Downloading pydantic_settings-2.13.1-py3-none-any.whl (58 kB)
+#9 42.46    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 58.9/58.9 kB 272.2 MB/s eta 0:00:00
+#9 42.47 Downloading python_multipart-0.0.26-py3-none-any.whl (28 kB)
+#9 42.47 Downloading sse_starlette-3.0.3-py3-none-any.whl (11 kB)
+#9 42.48 Downloading cryptography-46.0.7-cp311-abi3-manylinux_2_34_x86_64.whl (4.5 MB)
+#9 42.50    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 259.9 MB/s eta 0:00:00
+#9 42.50 Downloading cffi-2.0.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (215 kB)
+#9 42.51    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 215.6/215.6 kB 313.4 MB/s eta 0:00:00
+#9 42.51 Downloading typing_inspection-0.4.2-py3-none-any.whl (14 kB)
+#9 42.52 Downloading pycparser-3.0-py3-none-any.whl (48 kB)
+#9 42.52    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 48.2/48.2 kB 210.0 MB/s eta 0:00:00
+#9 67.46 Installing collected packages: mpmath, websockets, urllib3, typing-extensions, tqdm, tomli-w, tomli, sympy, sniffio, shellingham, pyyaml, python-multipart, python-dotenv, pygments, pycparser, packaging, nvidia-nvtx-cu12, nvidia-nvjitlink-cu12, nvidia-nccl-cu12, nvidia-curand-cu12, nvidia-cufft-cu12, nvidia-cuda-runtime-cu12, nvidia-cuda-nvrtc-cu12, nvidia-cuda-cupti-cu12, nvidia-cublas-cu12, networkx, mdurl, MarkupSafe, jiter, idna, httpx-sse, hf-xet, h11, fsspec, filelock, distro, click, charset-normalizer, certifi, annotated-types, annotated-doc, uvicorn, typing-inspection, triton, requests, pydantic-core, nvidia-cusparse-cu12, nvidia-cudnn-cu12, markdown-it-py, jinja2, httpcore, exceptiongroup, cffi, anyio, starlette, sse-starlette, rich, pydantic, nvidia-cusolver-cu12, httpx, cryptography, typer, torch, pydantic-settings, openapi-pydantic, openai, fastapi, authlib, mcp, huggingface_hub, fastmcp, openenv-core
+#9 103.4 ERROR: Could not install packages due to an OSError: [Errno 28] No space left on device
+#9 103.4 
+#9 103.5 
+#9 103.5 [notice] A new release of pip is available: 24.0 -> 26.0.1
+#9 103.5 [notice] To update, run: pip install --upgrade pip
+#9 ERROR: process "/bin/sh -c pip install --no-cache-dir -r /app/requirements.txt" did not complete successfully: exit code: 1
+------
+ > [4/5] RUN pip install --no-cache-dir -r /app/requirements.txt:
+42.51    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 215.6/215.6 kB 313.4 MB/s eta 0:00:00
+42.51 Downloading typing_inspection-0.4.2-py3-none-any.whl (14 kB)
+42.52 Downloading pycparser-3.0-py3-none-any.whl (48 kB)
+42.52    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 48.2/48.2 kB 210.0 MB/s eta 0:00:00
+67.46 Installing collected packages: mpmath, websockets, urllib3, typing-extensions, tqdm, tomli-w, tomli, sympy, sniffio, shellingham, pyyaml, python-multipart, python-dotenv, pygments, pycparser, packaging, nvidia-nvtx-cu12, nvidia-nvjitlink-cu12, nvidia-nccl-cu12, nvidia-curand-cu12, nvidia-cufft-cu12, nvidia-cuda-runtime-cu12, nvidia-cuda-nvrtc-cu12, nvidia-cuda-cupti-cu12, nvidia-cublas-cu12, networkx, mdurl, MarkupSafe, jiter, idna, httpx-sse, hf-xet, h11, fsspec, filelock, distro, click, charset-normalizer, certifi, annotated-types, annotated-doc, uvicorn, typing-inspection, triton, requests, pydantic-core, nvidia-cusparse-cu12, nvidia-cudnn-cu12, markdown-it-py, jinja2, httpcore, exceptiongroup, cffi, anyio, starlette, sse-starlette, rich, pydantic, nvidia-cusolver-cu12, httpx, cryptography, typer, torch, pydantic-settings, openapi-pydantic, openai, fastapi, authlib, mcp, huggingface_hub, fastmcp, openenv-core
+103.4 ERROR: Could not install packages due to an OSError: [Errno 28] No space left on device
+103.4 
+103.5 
+103.5 [notice] A new release of pip is available: 24.0 -> 26.0.1
+103.5 [notice] To update, run: pip install --upgrade pip
+------
+Dockerfile:6
+--------------------
+   4 |     
+   5 |     COPY requirements.txt /app/requirements.txt
+   6 | >>> RUN pip install --no-cache-dir -r /app/requirements.txt
+   7 |     
+   8 |     COPY . /app
+--------------------
+ERROR: failed to build: failed to solve: process "/bin/sh -c pip install --no-cache-dir -r /app/requirements.txt" did not complete successfully: exit code: 1
 
 [4] Baseline reproduces (inference.py)
 runtime_seconds=1
 start_tags=1 step_tags=6 end_tags=1 non_tag_lines=0
-[END] run_id=easy-1776015223 task_id=easy score=0.8358 success=True
+[END] run_id=easy-1776015883 task_id=easy score=0.8358 success=True
 
 [5] 3+ tasks with graders score/reward ranges
 task=easy score=0.8358 score_ok=True reward_min=0.0900 reward_max=0.4400 reward_ok=True
@@ -39,6 +79,6 @@ target_machine=vcpu2_memory8gb (design constraint acknowledged)
 validator=PASS
 
 Summary
-pass_count=9
-fail_count=0
-overall=PASS
+pass_count=8
+fail_count=1
+overall=FAIL
