@@ -80,6 +80,14 @@ Run HF predeploy checks:
 bash scripts/hf_predeploy_check.sh
 ```
 
+Publish to Hugging Face Space (safe env-var flow):
+```bash
+HF_USERNAME=sumit-io \
+HF_SPACE_NAME=project-sire \
+HF_TOKEN=<your_hf_token> \
+bash scripts/hf_space_publish_safe.sh
+```
+
 ## Notes
 1. Do not commit secrets (`PAT`, cookies, session tokens) into version control.
 2. Use environment variables for all credentials.
