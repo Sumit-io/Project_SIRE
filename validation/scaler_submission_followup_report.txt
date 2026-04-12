@@ -1,0 +1,29 @@
+Scaler Submission Follow-up Report
+Date: 2026-04-12
+
+1) Initial validator failure
+- Validation id: 111329
+- status: failed
+- error_text: openenv reset post failed
+- failed step key: openenv_reset_post
+
+2) Fix applied
+- Updated reset endpoint to accept POST without body:
+  def reset(payload: Optional[ResetRequest] = None)
+- Commit pushed to GitHub: 7c761b2
+- HF Space redeployed with updated code.
+- Live check: POST /reset (no body) now returns 200.
+
+3) Re-submission triggered
+- API result: {"message":"submission_saved"}
+- New validation id: 111471
+- Current status: running
+- Created at: 2026-04-12T17:24:51Z
+
+4) Checklist gate report
+- File: validation/scaler_pre_submission_gate_report.txt
+- Overall result: PASS
+
+5) Next action
+- Monitor dashboard validations until id 111471 completes.
+- If failed again, inspect step-level message and patch accordingly.
