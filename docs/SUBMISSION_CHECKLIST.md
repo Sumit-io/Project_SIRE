@@ -39,3 +39,4 @@
 2. `scripts/hf_predeploy_check.sh`
 3. `scripts/github_publish_safe.sh` (requires env vars)
 4. `scripts/hf_space_publish_safe.sh` (requires env vars)
+5. `scripts/scaler_gate_check.sh` (full disqualification checklist gate report)

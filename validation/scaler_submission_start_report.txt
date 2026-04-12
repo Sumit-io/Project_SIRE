@@ -1,0 +1,26 @@
+Scaler Submission Start Report
+Date: 2026-04-12
+
+1) Submission API call
+- Endpoint: https://www.scaler.com/meta-pytorch-hackathon/api/v1/submissions
+- Result: 200
+- Response: {"message":"submission_saved"}
+
+2) Post-submit status checks
+- Endpoint: /api/v1/submissions/validations?round=1&page=1
+- validation_count: 1
+- latest_validation_status: running
+- latest_validation_score: null
+- latest_validation_created_at: 2026-04-12T17:21:12Z
+
+3) Checklist gate report
+- File: validation/scaler_pre_submission_gate_report.txt
+- overall: PASS
+
+4) Submitted links
+- github_url: https://github.com/Sumit-io/Project_SIRE
+- huggingface_space_url: https://huggingface.co/spaces/sumit-io/project-sire
+
+5) Note
+- Validation job is running on the platform side.
+- Refresh dashboard validations panel to see final pass/fail outcome.

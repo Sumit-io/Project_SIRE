@@ -1,0 +1,44 @@
+Scaler Pre-Submission Gate Report
+Date: 2026-04-12 17:17:50Z
+HF_BASE=https://sumit-io-project-sire.hf.space
+
+[1] HF Space deploy + ping/reset
+health_code=200
+reset_code=200
+reset_task_id= easy
+has_state= True
+
+[2] OpenEnv spec compliance
+openenv_ok= True
+
+[3] Dockerfile builds
+docker_build=PASS
+
+[4] Baseline reproduces (inference.py)
+runtime_seconds=1
+start_tags=1 step_tags=6 end_tags=1 non_tag_lines=0
+[END] run_id=easy-1776014275 task_id=easy score=0.8358 success=True
+
+[5] 3+ tasks with graders score/reward ranges
+task=easy score=0.8358 score_ok=True reward_min=0.0900 reward_max=0.4400 reward_ok=True
+task=medium score=0.7899 score_ok=True reward_min=0.0900 reward_max=0.4400 reward_ok=True
+task=hard score=0.7419 score_ok=True reward_min=0.0900 reward_max=0.4400 reward_ok=True
+
+[6] Mandatory env variables in config
+API_BASE_URL=present_in_env_example
+MODEL_NAME=present_in_env_example
+HF_TOKEN=present_in_env_example
+
+[7] OpenAI client usage + root inference.py
+openai_import_count=1 openai_client_count=1
+
+[8] Infra restrictions quick check
+target_machine=vcpu2_memory8gb (design constraint acknowledged)
+
+[9] Validator script
+validator=PASS
+
+Summary
+pass_count=9
+fail_count=0
+overall=PASS
