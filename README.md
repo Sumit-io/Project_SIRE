@@ -68,6 +68,7 @@ docker run --rm -p 7860:7860 sire-round1:latest
 10. `docs/PARTICIPANT_PROFILE.md`
 11. `docs/PHASE_CLOSURE_STATUS.md`
 12. `docs/HF_DEPLOYMENT_RUNBOOK.md`
+13. `docs/HF_SPACE_README.md`
 
 ## Submission Automation
 Run pre-submission checks:
