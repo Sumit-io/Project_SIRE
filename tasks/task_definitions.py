@@ -109,6 +109,25 @@ TASKS = {
     },
 }
 
+
+TASK_GRADERS = {
+    "easy": {
+        "id": "grader_easy_recovery",
+        "function": "tasks.graders.grade_easy",
+        "description": "Validates easy recovery criteria and normalized score.",
+    },
+    "medium": {
+        "id": "grader_medium_recovery",
+        "function": "tasks.graders.grade_medium",
+        "description": "Validates medium recovery criteria and normalized score.",
+    },
+    "hard": {
+        "id": "grader_hard_recovery",
+        "function": "tasks.graders.grade_hard",
+        "description": "Validates hard recovery criteria and normalized score.",
+    },
+}
+
 ACTIONS = [
     "prioritize_incident",
     "query_diagnostics",
@@ -133,4 +152,20 @@ TASK_SUMMARY = {
         "success_plain": "Critical journeys recover without exhausting escalation budget.",
     },
 }
+
+
+def build_tasks_with_graders() -> list[dict]:
+    payload = []
+    for task_id, config in TASKS.items():
+        payload.append(
+            {
+                "id": task_id,
+                "title": config["title"],
+                "difficulty": task_id,
+                "target": TASK_SUMMARY[task_id]["goal_plain"],
+                "grader": TASK_GRADERS[task_id],
+                "score_range": {"min": 0.0, "max": 1.0},
+            }
+        )
+    return payload
 

@@ -17,12 +17,26 @@ tasks:
   - id: easy
     title: Single-service incident recovery
     target: Restore stable service with low escalation cost
+    grader: grader_easy_recovery
   - id: medium
     title: Multi-service noisy incident
     target: Recover with balanced diagnostics and action quality
+    grader: grader_medium_recovery
   - id: hard
     title: Cascading incident under strict budget
     target: Resolve safely with constrained escalations
+    grader: grader_hard_recovery
+
+graders:
+  - id: grader_easy_recovery
+    task_id: easy
+    implementation: tasks.graders.grade_easy
+  - id: grader_medium_recovery
+    task_id: medium
+    implementation: tasks.graders.grade_medium
+  - id: grader_hard_recovery
+    task_id: hard
+    implementation: tasks.graders.grade_hard
 
 scoring:
   range:

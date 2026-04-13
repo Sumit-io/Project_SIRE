@@ -8,7 +8,7 @@ from pydantic import BaseModel, Field
 
 from sire_env.baseline_policy import choose_action, load_policy
 from sire_env.environment_core import SireEnvironment
-from tasks.task_definitions import TASKS, TASK_SUMMARY
+from tasks.task_definitions import TASKS, TASK_GRADERS, TASK_SUMMARY, build_tasks_with_graders
 
 
 class ResetRequest(BaseModel):
@@ -50,7 +50,13 @@ def health() -> dict:
 
 @app.get("/tasks")
 def tasks() -> dict:
-    return {"tasks": TASKS}
+    return {
+        "tasks": build_tasks_with_graders(),
+        "task_configs": TASKS,
+        "graders": TASK_GRADERS,
+        "task_count": len(TASKS),
+        "grader_count": len(TASK_GRADERS),
+    }
 
 
 @app.get("/explain")
